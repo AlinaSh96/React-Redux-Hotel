@@ -1,0 +1,78 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid gray;
+    justify-content: space-between;
+}
+
+.image {
+    height: 64px;
+    width: 64px;
+    color: beige;
+    background-color: aliceblue;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 22px;
+    /* or 129% */
+    letter-spacing: -0.408px;
+    color: #424242;
+}
+
+.chekinDate {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #878787;
+}
+
+.raiting {
+    margin-top: 10px;
+}
+
+.additionalInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    // flex-grow: 0.5;
+}
+
+.label {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 22px;
+    /* or 200% */
+
+    letter-spacing: -0.408px;
+
+    color: #878787;
+    margin-right: 10px;
+}
+
+.price {
+    font-style: normal;
+font-weight: 400;
+font-size: 17px;
+line-height: 22px;
+/* or 129% */
+
+text-align: right;
+letter-spacing: -0.408px;
+
+color: #424242;
+}
+
+.favorite {
+    margin: 5px;
+}
