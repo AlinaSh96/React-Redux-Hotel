@@ -1,16 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import cls from './HotelItem.module.scss';
 import HouseItems from '../Icons/houseIcons';
 import RaitingIcons from '../Icons/RaitingIcons';
 import FavoriteIcons from '../Icons/FavoriteIcons/FavoriteIcons';
+import classNames from 'classnames';
+import { isFavoriteHotel } from '../../store/hotel/hotelSelector';
+import {  useSelector } from 'react-redux';
+
+const HotelItem = ({ hotels, view, isFavorite }) => {
+
+    const fav = useSelector(isFavoriteHotel(hotels.id));
+    console.log(fav)
 
 
-const HotelItem = ({ hotels }) => {
     return (
-        <div className={cls.wrapper}>
-            <div className={cls.image}>
+        <div className={classNames(cls.wrapper, cls[view])}>
+          {view === 'listHotel' && <div className={cls.image}>
                 <HouseItems/>
-            </div>
+            </div> }
             <div className={cls.info}>
                 <p className={cls.label}>{hotels.label}</p>
                 <p className={cls.chekinDate}>7 июля 2020</p>
@@ -24,12 +31,12 @@ const HotelItem = ({ hotels }) => {
             </div>
             <div className={cls.additionalInfo}>
             <div className={cls.favorite}>
-                <FavoriteIcons  hotels={hotels}/>
+                <FavoriteIcons  hotels={hotels} isFavorite={isFavorite}/>
             </div>
             <div className={cls.price}></div>
             <p>
                 <span className={cls.label}>Price:</span>
-                <span className={cls.price}>23 924 Р</span>
+                <span className={cls.price}>{hotels.price} Р</span>
             </p>
             </div>
         </div>
