@@ -1,0 +1,18 @@
+.wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 1rem;
+
+    span {
+        font-family: var(--font-family-main);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: right;
+        letter-spacing: -0.408px;
+        color: #41522E;
+    }
+}

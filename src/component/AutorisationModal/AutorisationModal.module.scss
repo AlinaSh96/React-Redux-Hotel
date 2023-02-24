@@ -11,36 +11,17 @@
 }
 
 .label {
-    font-size: 24px;
+    font-size: var(--font-line-m);
     color: #424242;
     text-align: center;
     margin: 0;
-    font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
+    font-family: var(--font-family-main);
+    font-weight: 500;
 }
 
 label {
     display: flex;
     flex-direction: column;
-}
-input  {
-    height: 50px;
-    background: #FFFFFF;
-    border: 1px solid #C9CACC;
-    border-radius: 4px;
-    margin-top: 7px;
-}
-
-input[type=text], input[type=email]  {
-    margin-top: 7px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-around;
 }
 
 input[type=submit] {

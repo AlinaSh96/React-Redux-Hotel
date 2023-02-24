@@ -5,14 +5,13 @@ export const Button = (props) => {
     const {
         className,
         children,
-        theme,
         ...otherProps
     } = props;
 
     return (
         <button
             type="button"
-            className={classNames(cls.Button, {}, [className, cls[theme]])}
+            className={classNames(cls.button, {}, [className])}
             {...otherProps}
         >
             {children}

@@ -29,7 +29,7 @@ console.log(hotels)
      <p>Добавлено в избранное: 3 отеля</p>
      <div  className={cls.hotelContainer}>
      {hotels?.map((hotel) => (
-          <HotelItem key={hotel.id} hotels={hotel} />
+          <HotelItem key={hotel.id} hotels={hotel}  view='listHotel'/>
         ))}
      </div>
     </div>

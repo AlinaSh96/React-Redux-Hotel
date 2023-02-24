@@ -6,6 +6,7 @@ import SearchModal from '../../component/searchModal/searchModal.';
 import HotelView from '../../component/HotelView/HotelView';
 import FavoriteModal from '../../component/FavoriteModal/FavoriteModal';
 import Button from '../../component/Button/Button';
+import { Logout } from '../../component/Logaout/Logout';
 
 
 
@@ -24,15 +25,14 @@ export const MainPage = () => {
       };
     return (
         <div className={cls.wrap}>
+            <Logout/>
+            <div className={cls.additionalArea}>
             <SearchModal 
                 onSearchChange={handleSearchChange}
                />
                <FavoriteModal/>
+               </div>
                <HotelView/>
-               <Button
-        >
-           ТЕСТ
-        </Button>
         </div>
     )
 }

@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 import cls from './searchModal.module.scss';
+import Button from '../Button/Button';
+import DateIcons from '../Icons/DateIcons';
 
 
-  
+
 const searchModal = ({
     filter,
     onChange,
     onSearchChange,
-  }) => {
+}) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [contryName, setContryName] = useState('');
     // const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     //     if (!onSearchChange) return;
-    
+
     //     const newFilter: any = {
     //     //  ...filter,
     //       name_like: e.target.value,
@@ -22,7 +24,7 @@ const searchModal = ({
     //     onSearchChange(newFilter);
     //   };
 
-      
+
     let handleSubmit = (event) => {
         event.preventDefault();
         if (!onSearchChange) return;
@@ -31,26 +33,29 @@ const searchModal = ({
 
     return (
         <div className={cls.wrap}>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <label>
-                    <span>Локация:</span>
+                    <span>Локация</span>
                     <input
-                     type="text"
-                     value={contryName} 
-                     onChange={(e) => setContryName(e.target.value)}/>
+                        type="text"
+                        value={contryName}
+                        onChange={(e) => setContryName(e.target.value)} />
                 </label>
 
                 <label>
-                <span>Дата Заселения:</span>
+                    <span>Дата Заселения</span>
                     <input type="date" />
                 </label>
 
                 <label>
-                <span>Количество дней:</span>
+                    <span>Количество дней</span>
                     <input type="number" />
                 </label>
 
-                <input type="submit" value="Найти" />
+                <Button className='button' onClick={handleSubmit} 
+                >
+                    Найти
+                </Button>
             </form>
         </div>
     )

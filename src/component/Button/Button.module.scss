@@ -1,0 +1,19 @@
+@import "../../styles/variables/global";
+
+.button {
+    @include btn-gradient;
+    height: 50px;
+    border: 1px solid #C9CACC;
+    color: #FFFFFF;
+    border-radius: 4px;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
+.button:hover {
+    @include btn-gradient-hover;
+}
+
+.button:active {
+    @include btn-gradient-active;
+}

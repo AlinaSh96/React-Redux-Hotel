@@ -3,10 +3,16 @@ import { getHotelSucess } from '../store/hotel/hotelSlice'
 
 function* fetchUserWorker(action) {
   const city = action.payload
-  const hotels = yield call(() => fetch(`http://engine.hotellook.com/api/v2/lookup.json?query=${city}&lang=ru&lookFor=hotel`));
-  const formattedCats = yield hotels.json()
+  const date = yield call(() => fetch(`http://engine.hotellook.com/api/v2/lookup.json?query=${city}&lang=ru&lookFor=hotel`));
+  const formattedDate = yield date.json();
+  const hotels = yield formattedDate.results.hotels;
+  yield hotels.forEach( hotel => {
+   hotel.raiting = Math.floor(Math.random() * 6);
+   hotel.price = Math.floor(Math.random() * 20000) + 30000;
+   hotel.isFavorite = false;
+  })
 
- yield put(getHotelSucess(formattedCats.results.hotels))
+ yield put(getHotelSucess(hotels))
 
 }
 

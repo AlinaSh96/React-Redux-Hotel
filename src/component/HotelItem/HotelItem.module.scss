@@ -6,6 +6,11 @@
     justify-content: space-between;
 }
 
+.favoriteHotel {
+    padding: 10px 0;
+}
+
+
 .image {
     height: 64px;
     width: 64px;
@@ -57,7 +62,7 @@
     letter-spacing: -0.408px;
 
     color: #878787;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .price {

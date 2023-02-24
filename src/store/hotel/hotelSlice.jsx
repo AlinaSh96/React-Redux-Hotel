@@ -27,16 +27,18 @@ export const hotelSlice = createSlice({
 
     addToFavorite(state, action) {
       const findItem = state.favoriteItems.find(_ => _.id === action.payload.id);
+      const findItemById = state.items.find(_ => _.id === action.payload.id);
       if (findItem) {
-        console.log('minus')
         state.favoriteItems = state.favoriteItems.filter( el => el.id !== action.payload.id)
         state.favoriteCount--;
+        findItemById.isFavorite = false;
       } else {
         state.favoriteItems = [
           ...state.favoriteItems,
           action.payload,
         ]
         state.favoriteCount++;
+        findItemById.isFavorite = true;
       }
     }
   }

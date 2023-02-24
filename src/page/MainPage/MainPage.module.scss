@@ -1,12 +1,13 @@
 .wrap {
-//display: flex;
 background-color: #E5E5E5;
-// height: 100vh;
-justify-content: space-around;
-padding: 20px 200px;
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(2, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+display: flex;
+justify-content: center;
+gap: 2rem;
+padding: 60px 0;
+}
+
+.additionalArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
