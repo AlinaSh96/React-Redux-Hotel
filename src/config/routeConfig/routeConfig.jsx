@@ -1,4 +1,3 @@
-import React from 'react';
 import { AutorisationPage } from '../../page/AutorisationPage/AutorisationPage';
 import { MainPage } from '../../page/MainPage/MainPage';
 import { NotFoundPage } from '../../page/NotFoundPage/NotFoundPage';
@@ -16,10 +15,11 @@ export const RoutePath = {
     [AppRoutes.NOT_FOUND]: '*',
 };
 
+
 export const routeConfig = {
     [AppRoutes.AUTORISATION]: {
         path: RoutePath.autorisatiom,
-        element: <AutorisationPage />,
+        element:<AutorisationPage />,
     },
     [AppRoutes.MAIN]: {
         path: RoutePath.main,

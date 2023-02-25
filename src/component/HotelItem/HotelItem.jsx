@@ -1,17 +1,20 @@
-import React, { useEffect } from 'react'
 import cls from './HotelItem.module.scss';
+import { isFavoriteHotel } from '../../store/hotel/hotelSelector';
+import {  useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addToFavorite } from '../../store/hotel/hotelSlice';
 import HouseItems from '../Icons/houseIcons';
 import RaitingIcons from '../Icons/RaitingIcons';
 import FavoriteIcons from '../Icons/FavoriteIcons/FavoriteIcons';
 import classNames from 'classnames';
-import { isFavoriteHotel } from '../../store/hotel/hotelSelector';
-import {  useSelector } from 'react-redux';
 
-const HotelItem = ({ hotels, view, isFavorite }) => {
 
-    const fav = useSelector(isFavoriteHotel(hotels.id));
-    console.log(fav)
-
+const HotelItem = ({ hotels, view}) => {
+    const dispatch = useDispatch();
+    const isFavorite = useSelector(isFavoriteHotel(hotels.id));
+    const handleClick = () => {
+        dispatch(addToFavorite(hotels));
+    }
 
     return (
         <div className={classNames(cls.wrapper, cls[view])}>
@@ -22,7 +25,8 @@ const HotelItem = ({ hotels, view, isFavorite }) => {
                 <p className={cls.label}>{hotels.label}</p>
                 <p className={cls.chekinDate}>7 июля 2020</p>
                 <div  className={cls.raiting}>
-                 <RaitingIcons/>
+                    {/* ПЕРЕПИСАТЬ!!!!! */}
+                 <RaitingIcons/>   
                  <RaitingIcons/>
                  <RaitingIcons/>
                  <RaitingIcons/>
@@ -31,7 +35,7 @@ const HotelItem = ({ hotels, view, isFavorite }) => {
             </div>
             <div className={cls.additionalInfo}>
             <div className={cls.favorite}>
-                <FavoriteIcons  hotels={hotels} isFavorite={isFavorite}/>
+                <FavoriteIcons  isCheck = {isFavorite} handleClick = {handleClick} hotels={hotels}/>
             </div>
             <div className={cls.price}></div>
             <p>
@@ -40,7 +44,7 @@ const HotelItem = ({ hotels, view, isFavorite }) => {
             </p>
             </div>
         </div>
-    )
+    );
 }
 
-export default HotelItem
+export default HotelItem;

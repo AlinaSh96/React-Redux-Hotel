@@ -1,21 +1,17 @@
-import { useState } from 'react';
 import cls from './FavoriteIcons.module.scss';
 import cl from 'classnames';
-import { useDispatch } from 'react-redux';
-import { addToFavorite } from '../../../store/hotel/hotelSlice';
 
-
-const FavoriteIcons = ({hotels, isFavorite}) => {
-    const [isCheck, setCheck] = useState(false);
-    const dispatch = useDispatch();
-    const handleClick = () => {
-        setCheck((isCheck) => !isCheck);
-        dispatch(addToFavorite(hotels));
+const FavoriteIcons = ({hotels, isFavorite, handleClick, isCheck}) => {
+    const handleClick1 = () => {
+        handleClick()
+       // setCheck((isCheck) => !isCheck);
+       // setCheck((isCheck) => !isCheck);
+       // dispatch(addToFavorite(hotels));
     }
 
     
     return (
-        <div onClick={handleClick} >
+        <div onClick={handleClick1} >
             <svg
                 className={cl( { [cls.check]: isCheck})}
                 width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">

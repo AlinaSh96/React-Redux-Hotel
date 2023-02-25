@@ -29,3 +29,10 @@ form {
     height: 100%;
     justify-content: space-around;
 }
+
+i {
+    border: solid rgba(0, 0, 0, 0.32);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}

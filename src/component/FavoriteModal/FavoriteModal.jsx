@@ -12,7 +12,7 @@ const FavoriteModal = () => {
   const [isCheckFilter, setCheckFilter] = useState(false);
 
   useEffect(() => {
-    setHotel((hotel) => hotel = hotelsDate)
+    setHotel(hotelsDate)
   }, [hotelsDate]);
 
 
@@ -54,7 +54,7 @@ const FavoriteModal = () => {
       </div>
       {hotel.length === 0 ? 'Пусто' :
         hotel?.map((hotel) => (
-          <HotelItem key={hotel.id} hotels={hotel} view='favoriteHotel' isFavorite='true'/>
+          <HotelItem key={hotel.id} hotels={hotel} view='favoriteHotel'/>
         ))
       }
 

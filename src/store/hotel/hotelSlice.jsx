@@ -1,24 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//const DEFAULT_CITY = 'Москва';
+//const DEFAULT_DATE = new Date().toISOString().split('T')[0];
 
 const initialState = {
   items: [],
   isLoading: false,
-  sliders: ['slider1', 'slider2', 'slider3'],
+  sliders: ['slider1', 'slider2', 'slider3', 'slider4'],
   favoriteItems: [],
-  favoriteCount: 0
+  favoriteCount: 0,
+ /// cityName: DEFAULT_CITY,
+  ///date: DEFAULT_DATE
 }
 
 export const hotelSlice = createSlice({
   name: "hotel",
   initialState,
   reducers: {
-    getHotelSucess(state, action) {   ///типизировать!!!
+    getHotelSucess(state, action) {   
       state.items = action.payload
       state.isLoading = false;
     },
-    getHotelfetch(state, action) {
-      // console.log(action.payload)
+    getHotelfetch(state) {
       state.isLoading = true;
     },
     getHotelfail(state) {
