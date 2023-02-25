@@ -1,4 +1,4 @@
-import cls from './SearchModal.module.scss';
+import cls from './SearchHotelsModal.module.scss';
 import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
 import { setBookingInfo } from '../../store/hotel/hotelSlice';
@@ -6,7 +6,7 @@ import { useInput } from '../../hooks/input';
 import { useSelector } from 'react-redux';
 import { getBookingInfo } from '../../store/hotel/hotelSelector';
 
-const SearchModal = ({ onSearchChange }) => {
+const SearchHotelsModal = ({ onSearchChange }) => {
     const dispatch = useDispatch();
     const bookingDate = useSelector(getBookingInfo());
 
@@ -62,4 +62,4 @@ const SearchModal = ({ onSearchChange }) => {
     );
 };
 
-export default SearchModal;
+export default SearchHotelsModal;
