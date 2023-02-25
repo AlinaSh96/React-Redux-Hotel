@@ -3,7 +3,7 @@ import { getHotelSucess } from '../store/hotel/hotelSlice'
 
 function* fetchUserWorker(action) {
   const city = action.payload
-  const date = yield call(() => fetch(`http://engine.hotellook.com/api/v2/lookup.json?query=${city}&lang=ru&lookFor=both`));
+  const date = yield call(() => fetch(`https://engine.hotellook.com/api/v2/lookup.json?query=${city}&lang=ru&lookFor=both`));
   const formattedDate = yield date.json();
   const hotels = yield formattedDate.results.hotels;
   yield hotels.forEach(hotel => {
