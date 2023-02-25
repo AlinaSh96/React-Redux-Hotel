@@ -1,0 +1,9 @@
+{
+    // Форматирование кода с помощью prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  
+    // Форматирование при сохранении файла
+    "editor.formatOnSave": true,
+  
+    "tabWidth": 2
+  }

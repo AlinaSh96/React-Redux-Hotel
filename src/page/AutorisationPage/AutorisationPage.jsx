@@ -1,4 +1,3 @@
-import React from 'react'
 import cls from './AutorisationPage.module.scss';
 import AutorisationModal from '../../component/AutorisationModal/AutorisationModal';
 
@@ -9,6 +8,5 @@ export const AutorisationPage = () => {
                 <AutorisationModal />
             </div>
         </div>
-    )
-}
-
+    );
+};

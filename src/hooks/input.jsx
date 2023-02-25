@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useValidation } from "./validation";
+import { useState } from 'react';
+import { useValidation } from './validation';
 
 export const useInput = (initialValue, validations) => {
     const [value, setValue] = useState(initialValue);
@@ -8,11 +8,11 @@ export const useInput = (initialValue, validations) => {
 
     const onChange = (e) => {
         setValue(e.target.value);
-    }
+    };
 
     const onBlur = (e) => {
         setDirty(true);
-    }
+    };
 
     return {
         value,
@@ -21,5 +21,4 @@ export const useInput = (initialValue, validations) => {
         isDirty,
         ...valid
     };
-
 };

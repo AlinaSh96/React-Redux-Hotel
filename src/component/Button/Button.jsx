@@ -1,13 +1,8 @@
 import classNames from 'classnames';
-import cls from './Button.module.scss'
+import cls from './Button.module.scss';
 
 export const Button = (props) => {
-    const {
-        className,
-        disabled,
-        children,
-        ...otherProps
-    } = props;
+    const { className, disabled, children, ...otherProps } = props;
 
     return (
         <button

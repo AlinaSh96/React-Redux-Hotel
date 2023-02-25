@@ -30,15 +30,6 @@
     color: #424242;
 }
 
-.chekinDate {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: -0.408px;
-    color: #878787;
-}
-
 .raiting {
     margin-top: 10px;
 }
@@ -75,4 +66,18 @@
 
 .info {
     width: 40%;
+}
+
+.date {
+    display: flex;
+    gap: 15px;
+
+    span {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: -0.408px;
+        color: #878787;
+    }
 }

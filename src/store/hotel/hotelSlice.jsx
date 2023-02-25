@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-//const DEFAULT_CITY = 'Москва';
-//const DEFAULT_DATE = new Date().toISOString().split('T')[0];
+import { DEFAULT_CITY, DEFAULT_DATE, DEFAULT_DAYS } from "./constants";
 
 const initialState = {
   items: [],
@@ -9,8 +7,11 @@ const initialState = {
   sliders: ['slider1', 'slider2', 'slider3', 'slider4'],
   favoriteItems: [],
   favoriteCount: 0,
- /// cityName: DEFAULT_CITY,
-  ///date: DEFAULT_DATE
+  bookingInfo: {
+    city: DEFAULT_CITY,
+    days: DEFAULT_DAYS,
+    date: DEFAULT_DATE,
+  },
 }
 
 export const hotelSlice = createSlice({
@@ -43,9 +44,16 @@ export const hotelSlice = createSlice({
         state.favoriteCount++;
         findItemById.isFavorite = true;
       }
+    },
+
+    setBookingInfo(state, action) {
+      console.log(action)
+      state.bookingInfo.city = action.payload.city;
+      state.bookingInfo.days = action.payload.dayCount;
+      state.bookingInfo.date = action.payload.date;
     }
   }
 });
 
-export const { getHotelSucess, getHotelfetch, getHotelfail, addToFavorite } = hotelSlice.actions;
+export const { getHotelSucess, getHotelfetch, getHotelfail, addToFavorite, setBookingInfo} = hotelSlice.actions;
 export default hotelSlice.reducer;

@@ -1,19 +1,32 @@
-import React, { useState } from 'react'
 import cls from './SearchModal.module.scss';
 import Button from '../Button/Button';
+import { useDispatch } from 'react-redux';
+import { setBookingInfo } from '../../store/hotel/hotelSlice';
+import { useInput } from '../../hooks/input';
+import { useSelector } from 'react-redux';
+import { getBookingInfo } from '../../store/hotel/hotelSelector';
 
-const SearchModal = ({
-    onSearchChange,
-}) => {
-    const [contryName, setContryName] = useState('Москва');
-    const [dayCount, setDayCount] = useState(1);
-    const [date, setDate] = useState( new Date().toISOString().split('T')[0]);
+const SearchModal = ({ onSearchChange }) => {
+    const dispatch = useDispatch();
+    const bookingDate = useSelector(getBookingInfo());
+
+    const contryName = useInput(bookingDate.city, {});
+    const dayCount = useInput(bookingDate.days, {});
+    const date = useInput(bookingDate.date, {});
 
     let handleSubmit = (event) => {
         event.preventDefault();
         if (!onSearchChange) return;
-        onSearchChange(contryName);
-    }
+        onSearchChange(contryName.value);
+
+        const bookingDate = {
+            city: contryName.value,
+            dayCount: dayCount.value,
+            date: date.value
+        };
+
+        dispatch(setBookingInfo(bookingDate));
+    };
 
     return (
         <div className={cls.wrap}>
@@ -22,29 +35,31 @@ const SearchModal = ({
                     <span>Локация</span>
                     <input
                         type="text"
-                        value={contryName}
-                        onChange={(e) => setContryName(e.target.value)} />
+                        onChange={(e) => contryName.onChange(e)}
+                        value={contryName.value}
+                    />
                 </label>
                 <label>
                     <span>Дата Заселения</span>
-                    <input
-                        type="date"
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)} />
+                    <input 
+                         type="date" 
+                         onChange={(e) => date.onChange(e)} 
+                         value={date.value} />
                 </label>
                 <label>
                     <span>Количество дней</span>
                     <input
-                        type="number"
-                        value={dayCount}
-                        onChange={(e) => setDayCount(e.target.value)} />
+                         type="number"
+                         onChange={(e) => dayCount.onChange(e)}
+                         value={dayCount.value}
+                    />
                 </label>
-                <Button className='button' onClick={handleSubmit}>
+                <Button className="button" onClick={handleSubmit}>
                     Найти
                 </Button>
             </form>
         </div>
     );
-}
+};
 
 export default SearchModal;
