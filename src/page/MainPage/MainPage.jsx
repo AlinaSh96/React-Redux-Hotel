@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getHotelfetch } from '../../store/hotel/hotelSlice';
 import { LogOut } from '../../component/LogOut/LogOut';
-import SearchModal from '../../component/SearchModal/SearchModal';
+import Searchmodal from '../../component/Searchmodal/Searchmodal';
 import HotelView from '../../component/HotelView/HotelView';
 import FavoriteModal from '../../component/FavoriteModal/FavoriteModal';
 
@@ -21,7 +21,7 @@ export const MainPage = () => {
         <div className={cls.wrap}>
             <LogOut />
             <div className={cls.additionalArea}>
-                <SearchModal onSearchChange={handleSearchChange} />
+                <Searchmodal onSearchChange={handleSearchChange} />
                 <FavoriteModal />
             </div>
             <HotelView />
