@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getHotelfetch } from '../../store/hotel/hotelSlice';
 import { LogOut } from '../../component/LogOut/LogOut';
-import SearchModal from '../../component/SearchModal/SearchModal.';
+import SearchModal from '../../component/SearchModal/SearchModal';
 import HotelView from '../../component/HotelView/HotelView';
 import FavoriteModal from '../../component/FavoriteModal/FavoriteModal';
 
