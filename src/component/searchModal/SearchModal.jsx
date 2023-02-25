@@ -6,7 +6,7 @@ import { useInput } from '../../hooks/input';
 import { useSelector } from 'react-redux';
 import { getBookingInfo } from '../../store/hotel/hotelSelector';
 
-const Searchmodal = ({ onSearchChange }) => {
+const SearchModal = ({ onSearchChange }) => {
     const dispatch = useDispatch();
     const bookingDate = useSelector(getBookingInfo());
 
@@ -62,4 +62,4 @@ const Searchmodal = ({ onSearchChange }) => {
     );
 };
 
-export default Searchmodal;
+export default SearchModal;
