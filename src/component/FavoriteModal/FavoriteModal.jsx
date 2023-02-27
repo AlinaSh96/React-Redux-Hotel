@@ -7,28 +7,20 @@ import classNames from 'classnames';
 
 const FavoriteModal = () => {
     const hotelsDate = useSelector(getHotelsFromFavotite());
-    const [hotel, setHotel] = useState(hotelsDate);
-    const [isCheckFilter, setCheckFilter] = useState(false);
+    const [hotels, setHotel] = useState(hotelsDate);
 
     useEffect(() => {
         setHotel(hotelsDate);
     }, [hotelsDate]);
 
     const handleSortASCByfield = (field) => {
-        setCheckFilter((isCheckFilter) => !isCheckFilter);
-        let sortHotel = [...hotel];
-        sortHotel.sort(function (a, b) {
-            return a[field] - b[field];
-        });
-        setHotel(sortHotel);
+        const sorted = [...hotels].sort((a, b) => a[field] - b[field]);
+        setHotel(sorted);
     };
 
     const handleSortDESCByfield = (field) => {
-        let sortHotel = [...hotel];
-        sortHotel.sort(function (a, b) {
-            return b[field] - a[field];
-        });
-        setHotel(sortHotel);
+        const sorted = [...hotels].sort((a, b) => b[field] - a[field]);
+        setHotel(sorted);
     };
 
     return (
@@ -39,7 +31,7 @@ const FavoriteModal = () => {
                     <span>Рейтинг</span>
                     <div className={cls.arrow}>
                         <i
-                            className={classNames(cls.arrowUp, { [cls.fill]: isCheckFilter })}
+                            className={classNames(cls.arrowUp)}
                             onClick={() => handleSortASCByfield('raiting')}
                         ></i>
                         <i
@@ -52,7 +44,7 @@ const FavoriteModal = () => {
                     <span>Цена</span>
                     <div className={cls.arrow}>
                         <i
-                            className={classNames(cls.arrowUp, { [cls.fill]: isCheckFilter })}
+                            className={classNames(cls.arrowUp )}
                             onClick={() => handleSortASCByfield('price')}
                         ></i>
                         <i
@@ -62,9 +54,9 @@ const FavoriteModal = () => {
                     </div>
                 </div>
             </div>
-            {hotel.length === 0
+            {hotels.length === 0
                 ? 'Пусто'
-                : hotel?.map((hotel) => (
+                : hotels?.map((hotel) => (
                       <HotelItem key={hotel.id} hotels={hotel} view="favoriteHotel" />
                   ))}
         </div>

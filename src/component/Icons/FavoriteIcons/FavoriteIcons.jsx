@@ -2,11 +2,8 @@ import cls from './FavoriteIcons.module.scss';
 import classnames from 'classnames';
 
 const FavoriteIcons = ({ handleClick, isCheck }) => {
-    const setFavorite = () => {
-        handleClick();
-    };
     return (
-        <div onClick={setFavorite}>
+        <div onClick={handleClick}>
             <svg
                 className={classnames({ [cls.check]: isCheck })}
                 width="23"

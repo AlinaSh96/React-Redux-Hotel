@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
-import cls from './AutorisationModal.module.scss';
+import cls from './AuthModal.module.scss';
 import Button from '../Button/Button';
 import { Navigate } from 'react-router-dom';
 import { useInput } from '../../hooks/input';
 
-const AutorisationModal = () => {
+const AuthModal = () => {
     const [isUserLogIn, setIsUserLogIn] = useState(false);
     const login = useInput('', { isEmail: true });
     const password = useInput('', { minLength: 8 });
 
     useEffect(() => {
-        setIsUserLogIn(JSON.parse(localStorage.getItem('isUserLogIn')));
+        setIsUserLogIn(JSON.parse(localStorage.getItem('isUserLogIn')) || false);
     }, []);
 
     let handleSubmit = () => {
@@ -56,4 +56,4 @@ const AutorisationModal = () => {
     }
 };
 
-export default AutorisationModal;
+export default AuthModal;

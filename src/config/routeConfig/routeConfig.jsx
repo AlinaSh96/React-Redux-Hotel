@@ -1,23 +1,23 @@
-import { AutorisationPage } from '../../page/AutorisationPage/AutorisationPage';
+import { AuthPage } from '../../page/AuthPage/AuthPage';
 import { MainPage } from '../../page/MainPage/MainPage';
 import { NotFoundPage } from '../../page/NotFoundPage/NotFoundPage';
 
 const AppRoutes = {
     MAIN: 'main',
-    AUTORISATION: 'autorisatiom',
+    AUTH: 'auth',
     NOT_FOUND: 'not_found'
 };
 
 export const RoutePath = {
-    [AppRoutes.AUTORISATION]: '/',
+    [AppRoutes.AUTH]: '/',
     [AppRoutes.MAIN]: '/main',
     [AppRoutes.NOT_FOUND]: '*'
 };
 
 export const routeConfig = {
-    [AppRoutes.AUTORISATION]: {
-        path: RoutePath.autorisatiom,
-        element: <AutorisationPage />
+    [AppRoutes.AUTH]: {
+        path: RoutePath.auth,
+        element: <AuthPage />
     },
     [AppRoutes.MAIN]: {
         path: RoutePath.main,

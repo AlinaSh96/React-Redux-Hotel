@@ -1,11 +1,13 @@
 import { NavLink } from 'react-router-dom';
 
 const LogoutIcons = () => {
-    const test = () => {
+    const setAutorization = () => {
         localStorage.setItem('isUserLogIn', JSON.stringify(false));
     };
+
+
     return (
-        <NavLink onClick={test} to="/">
+        <NavLink onClick={setAutorization} to="/">
             <svg
                 width="22"
                 height="22"

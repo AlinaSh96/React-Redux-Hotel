@@ -10,17 +10,17 @@ const SearchHotelsModal = ({ onSearchChange }) => {
     const dispatch = useDispatch();
     const bookingDate = useSelector(getBookingInfo());
 
-    const contryName = useInput(bookingDate.city, {});
+    const countryName = useInput(bookingDate.city, {});
     const dayCount = useInput(bookingDate.days, {});
     const date = useInput(bookingDate.date, {});
 
-    let handleSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         if (!onSearchChange) return;
-        onSearchChange(contryName.value);
+        onSearchChange(countryName.value);
 
         const bookingDate = {
-            city: contryName.value,
+            city: countryName.value,
             dayCount: dayCount.value,
             date: date.value
         };
@@ -30,13 +30,13 @@ const SearchHotelsModal = ({ onSearchChange }) => {
 
     return (
         <div className={cls.wrap}>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     <span>Локация</span>
                     <input
                         type="text"
-                        onChange={(e) => contryName.onChange(e)}
-                        value={contryName.value}
+                        onChange={(e) => countryName.onChange(e)}
+                        value={countryName.value}
                     />
                 </label>
                 <label>
@@ -54,7 +54,7 @@ const SearchHotelsModal = ({ onSearchChange }) => {
                          value={dayCount.value}
                     />
                 </label>
-                <Button className="button" onClick={handleSubmit}>
+                <Button className="button">
                     Найти
                 </Button>
             </form>
