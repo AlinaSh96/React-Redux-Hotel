@@ -5,6 +5,7 @@ import { setBookingInfo } from '../../store/hotel/hotelSlice';
 import { useInput } from '../../hooks/input';
 import { useSelector } from 'react-redux';
 import { getBookingInfo } from '../../store/hotel/hotelSelector';
+import { useCallback } from 'react';
 
 const SearchHotelsModal = ({ onSearchChange }) => {
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const SearchHotelsModal = ({ onSearchChange }) => {
     const dayCount = useInput(bookingDate.days, {});
     const date = useInput(bookingDate.date, {});
 
-    const handleSubmit = (event) => {
+    const handleSubmit  = useCallback((event) => {
         event.preventDefault();
         if (!onSearchChange) return;
         onSearchChange(countryName.value);
@@ -26,7 +27,7 @@ const SearchHotelsModal = ({ onSearchChange }) => {
         };
 
         dispatch(setBookingInfo(bookingDate));
-    };
+      }, [countryName.value, dayCount.value, date.value, onSearchChange, dispatch])
 
     return (
         <div className={cls.wrap}>
