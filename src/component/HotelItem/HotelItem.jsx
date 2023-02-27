@@ -13,8 +13,8 @@ const HotelItem = ({ hotels, view }) => {
     const isFavorite = useSelector(isFavoriteHotel(hotels.id));
     const handleClick = () => {
         dispatch(addToFavorite(hotels));
-    };
-
+    }
+    
     const bookingDate = useSelector(getBookingInfo());
 
     return (
