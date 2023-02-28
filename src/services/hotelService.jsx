@@ -8,12 +8,11 @@ function* fetchUserWorker(action) {
     let checkOut = new Date(checkIn);
     checkOut.setDate(checkOut.getDate() + +dayCount);
     checkOut = checkOut.toLocaleDateString('en-ca');
-   console.log(action.payload) //{ city, dayCount, date }
     try {
         const data = yield call(() =>
             fetch(
-                ` https://engine.hotellook.com/api/v2/cache.json?location=${city}&currency=rub&checkIn=${checkIn}&checkOut=${checkOut}&limit=10&lang=ru` 
-               )
+                ` https://engine.hotellook.com/api/v2/cache.json?location=${city}&currency=rub&checkIn=${checkIn}&checkOut=${checkOut}&limit=10&lang=ru`
+            )
         );
         const hotels = yield data.json();
         yield hotels.forEach((hotel) => {
