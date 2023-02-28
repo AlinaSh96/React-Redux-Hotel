@@ -23,13 +23,13 @@ const FavoriteModal = () => {
     const handleSortASCByfield = (field) => {
         const sorted = [...hotels].sort((a, b) => a[field] - b[field]);
         setHotel(sorted);
-        setFilter(field === 'price' ? 'COST_UP' : 'RATING_UP');
+        setFilter(field === 'priceAvg' ? 'COST_UP' : 'RATING_UP');
     };
 
     const handleSortDESCByfield = (field) => {
         const sorted = [...hotels].sort((a, b) => b[field] - a[field]);
         setHotel(sorted);
-        setFilter(field === 'price' ? 'COST_DOWN' : 'RAITING_DOWN');
+        setFilter(field === 'priceAvg' ? 'COST_DOWN' : 'RAITING_DOWN');
     };
     return (
         <div className={cls.wrap}>
@@ -46,13 +46,13 @@ const FavoriteModal = () => {
                             className={classNames([cls.arrowUp], {
                                 [cls.fill]: filter === FILTER_RATING_UP
                             })}
-                            onClick={() => handleSortASCByfield('raiting')}
+                            onClick={() => handleSortASCByfield('stars')}
                         ></i>
                         <i
                             className={classNames([cls.arrowDown], {
                                 [cls.fill]: filter === FILTER_RAITING_DOWN
                             })}
-                            onClick={() => handleSortDESCByfield('raiting')}
+                            onClick={() => handleSortDESCByfield('stars')}
                         ></i>
                     </div>
                 </div>
@@ -67,13 +67,13 @@ const FavoriteModal = () => {
                             className={classNames([cls.arrowUp], {
                                 [cls.fill]: filter === FILTER_COST_UP
                             })}
-                            onClick={() => handleSortASCByfield('price')}
+                            onClick={() => handleSortASCByfield('priceAvg')}
                         ></i>
                         <i
                             className={classNames([cls.arrowDown], {
                                 [cls.fill]: filter === FILTER_COST_DOWN
                             })}
-                            onClick={() => handleSortDESCByfield('price')}
+                            onClick={() => handleSortDESCByfield('priceAvg')}
                         ></i>
                     </div>
                 </div>
