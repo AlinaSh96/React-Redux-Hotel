@@ -16,7 +16,7 @@ const Header = () => {
                         <ArrowIcons />
                         <span>{bookingDate.city}</span>
                     </div>
-                    <div className={cls.date}>{bookingDate.date}</div>
+                    <div className={cls.date}>{JSON.parse(bookingDate.date)}</div>
                 </div>
             </div>
             <div>

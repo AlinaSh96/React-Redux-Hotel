@@ -14,3 +14,21 @@
     letter-spacing: -0.408px;
     color: #424242;
 }
+
+.hotelContainer {
+    max-height: 700px;
+    overflow: overlay;
+}
+
+.hotelContainer::-webkit-scrollbar,
+.hotelContainer::-webkit-scrollbar-thumb {
+    width: 21px;
+    border-radius: 13px;
+    background-clip: padding-box;
+    border: 10px solid transparent;
+    margin-right: 100px;
+}
+
+.hotelContainer::-webkit-scrollbar-thumb {
+    background-color: #41522E;
+}

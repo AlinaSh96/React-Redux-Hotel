@@ -3,21 +3,20 @@ import { getHotelSucess, getHotelfail } from '../store/hotel/hotelSlice';
 
 function* fetchUserWorker(action) {
     const { city, dayCount, date } = action.payload;
-    const checkOut = new Date(JSON.parse(date));
-    checkOut.setDate(checkOut.getDate() + +dayCount)
+
+    const checkIn = new Date(JSON.parse(date)).toLocaleDateString('en-ca');
+    let checkOut = new Date(checkIn);
+    checkOut.setDate(checkOut.getDate() + +dayCount);
+    checkOut = checkOut.toLocaleDateString('en-ca');
 
     try {
-        const date = yield call(() =>
+        const data = yield call(() =>
             fetch(
-                `https://engine.hotellook.com/api/v2/lookup.json?query=${city}&lang=ru&lookFor=both`
-               // `https://cache.json?location=${city}&currency=rub&checkIn=${date}&&checkOut=${checkOut}&limit=10`
-            )
+                ` https://engine.hotellook.com/api/v2/cache.json?location=${city}&currency=rub&checkIn=${checkIn}&checkOut=${checkOut}&limit=10&lang=ru` 
+               )
         );
-        const formattedDate = yield date.json();
-        const hotels = yield formattedDate.results.hotels;
+        const hotels = yield data.json();
         yield hotels.forEach((hotel) => {
-            hotel.raiting = Math.floor(Math.random() * 6);
-            hotel.price = Math.floor(Math.random() * 20000) + 30000;
             hotel.isFavorite = false;
         });
         yield put(getHotelSucess(hotels));

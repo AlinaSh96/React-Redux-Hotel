@@ -81,7 +81,7 @@ const FavoriteModal = () => {
             {hotels.length === 0
                 ? 'Пусто'
                 : hotels?.map((hotel) => (
-                      <HotelItem key={hotel.id} hotels={hotel} view="favoriteHotel" />
+                      <HotelItem key={hotel.hotelId} hotels={hotel} view="favoriteHotel" />
                   ))}
         </div>
     );

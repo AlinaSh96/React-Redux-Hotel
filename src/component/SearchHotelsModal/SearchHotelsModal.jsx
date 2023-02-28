@@ -22,7 +22,7 @@ const SearchHotelsModal = ({ onSearchChange }) => {
         const bookingDate = {
             city: countryName.value,
             dayCount: dayCount.value,
-            date: date.value,
+            date: JSON.stringify(date.value),
         };
 
         onSearchChange(bookingDate);
