@@ -1,6 +1,6 @@
-const RaitingIcon = () => {
+const RaitingIcon = ({id}) => {
     return (
-        <svg
+        <svg 
             width="17"
             height="17"
             viewBox="0 0 17 17"

@@ -7,14 +7,20 @@ import SearchHotelsModal from '../../component/SearchHotelsModal/SearchHotelsMod
 import HotelView from '../../component/HotelView/HotelView';
 import FavoriteModal from '../../component/FavoriteModal/FavoriteModal';
 
+const bookingDate = {
+    city: 'moscow',
+    dayCount: 1,
+    date: JSON.stringify(new Date())
+};
+
 export const MainPage = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getHotelfetch('moscow'));
+        dispatch(getHotelfetch(bookingDate));
     }, [dispatch]);
 
-    const handleSearchChange = (country) => {
-        dispatch(getHotelfetch(country));
+    const handleSearchChange = (country, dateChekIn, dateChekOut) => {
+        dispatch(getHotelfetch(country, dateChekIn, dateChekOut));
     };
 
     return (

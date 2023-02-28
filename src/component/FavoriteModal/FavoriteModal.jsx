@@ -31,7 +31,6 @@ const FavoriteModal = () => {
         setHotel(sorted);
         setFilter(field === 'price' ? 'COST_DOWN' : 'RAITING_DOWN');
     };
-    console.log(filter)
     return (
         <div className={cls.wrap}>
             <p className={cls.title}>Избранное</p>

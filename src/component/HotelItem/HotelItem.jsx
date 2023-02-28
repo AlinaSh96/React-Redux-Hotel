@@ -8,11 +8,11 @@ import FavoriteIcons from '../Icons/FavoriteIcons/FavoriteIcons';
 import classNames from 'classnames';
 import { Raiting } from '../Raiting/Raiting';
 
-const HotelItem = ({ hotels, view }) => {
+const HotelItem = ({ hotels: hotel, view }) => {
     const dispatch = useDispatch();
-    const isFavorite = useSelector(isFavoriteHotel(hotels.id));
+    const isFavorite = useSelector(isFavoriteHotel(hotel.id));
     const handleClick = () => {
-        dispatch(addToFavorite(hotels));
+        dispatch(addToFavorite(hotel));
     }
     
     const bookingDate = useSelector(getBookingInfo());
@@ -25,24 +25,24 @@ const HotelItem = ({ hotels, view }) => {
                 </div>
             )}
             <div className={cls.info}>
-                <p className={cls.label}>{hotels.label}</p>
+                <p className={cls.label}>{hotel.label}</p>
                 <div className={cls.date}>
                     <span>{bookingDate.date}</span>
                     <span>-</span>
                     <span>{bookingDate.days}</span>
                 </div>
                 <div className={cls.raiting}>
-                    <Raiting value={hotels.raiting} size="small" />
+                    <Raiting key = {hotel.id} value={hotel.raiting} id={hotel.id} size="small" />
                 </div>
             </div>
             <div className={cls.additionalInfo}>
                 <div className={cls.favorite}>
-                    <FavoriteIcons isCheck={isFavorite} handleClick={handleClick} hotels={hotels} />
+                    <FavoriteIcons isCheck={isFavorite} handleClick={handleClick} hotels={hotel} />
                 </div>
                 <div className={cls.price}></div>
                 <p>
                     <span className={cls.label}>Price:</span>
-                    <span className={cls.price}>{hotels.price} Р</span>
+                    <span className={cls.price}>{hotel.price} Р</span>
                 </p>
             </div>
         </div>

@@ -47,7 +47,6 @@ export const hotelSlice = createSlice({
     },
 
     setBookingInfo(state, action) {
-      console.log(action)
       state.bookingInfo.city = action.payload.city;
       state.bookingInfo.days = action.payload.dayCount;
       state.bookingInfo.date = action.payload.date;

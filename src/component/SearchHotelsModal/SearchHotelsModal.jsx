@@ -18,13 +18,14 @@ const SearchHotelsModal = ({ onSearchChange }) => {
     const handleSubmit  = useCallback((event) => {
         event.preventDefault();
         if (!onSearchChange) return;
-        onSearchChange(countryName.value);
-
+  
         const bookingDate = {
             city: countryName.value,
             dayCount: dayCount.value,
-            date: date.value
+            date: date.value,
         };
+
+        onSearchChange(bookingDate);
 
         dispatch(setBookingInfo(bookingDate));
       }, [countryName.value, dayCount.value, date.value, onSearchChange, dispatch])

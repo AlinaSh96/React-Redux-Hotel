@@ -2,11 +2,15 @@ import { put, call, debounce, takeLatest } from 'redux-saga/effects';
 import { getHotelSucess, getHotelfail } from '../store/hotel/hotelSlice';
 
 function* fetchUserWorker(action) {
-    const city = action.payload;
+    const { city, dayCount, date } = action.payload;
+    const checkOut = new Date(JSON.parse(date));
+    checkOut.setDate(checkOut.getDate() + +dayCount)
+
     try {
         const date = yield call(() =>
             fetch(
                 `https://engine.hotellook.com/api/v2/lookup.json?query=${city}&lang=ru&lookFor=both`
+               // `https://cache.json?location=${city}&currency=rub&checkIn=${date}&&checkOut=${checkOut}&limit=10`
             )
         );
         const formattedDate = yield date.json();
