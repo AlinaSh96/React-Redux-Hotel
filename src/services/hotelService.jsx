@@ -8,7 +8,7 @@ function* fetchUserWorker(action) {
     let checkOut = new Date(checkIn);
     checkOut.setDate(checkOut.getDate() + +dayCount);
     checkOut = checkOut.toLocaleDateString('en-ca');
-
+   console.log(action.payload) //{ city, dayCount, date }
     try {
         const data = yield call(() =>
             fetch(

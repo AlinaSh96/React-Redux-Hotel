@@ -13,7 +13,7 @@ const SearchHotelsModal = ({ onSearchChange }) => {
 
     const countryName = useInput(bookingDate.city, {});
     const dayCount = useInput(bookingDate.days, {});
-    const date = useInput(bookingDate.date, {});
+    const date = useInput(JSON.parse(bookingDate.date), {});
 
     const handleSubmit  = useCallback((event) => {
         event.preventDefault();

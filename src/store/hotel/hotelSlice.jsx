@@ -10,7 +10,7 @@ const initialState = {
   bookingInfo: {
     city: DEFAULT_CITY,
     days: DEFAULT_DAYS,
-    date: DEFAULT_DATE,
+    date: JSON.stringify(DEFAULT_DATE),
   },
 }
 
