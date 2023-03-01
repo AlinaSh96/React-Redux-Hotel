@@ -12,6 +12,7 @@ const initialState = {
     days: DEFAULT_DAYS,
     date: JSON.stringify(DEFAULT_DATE),
   },
+  errors: false,
 }
 
 export const hotelSlice = createSlice({
@@ -21,12 +22,14 @@ export const hotelSlice = createSlice({
     getHotelSucess(state, action) {   
       state.items = action.payload
       state.isLoading = false;
+      state.errors = false;
     },
     getHotelfetch(state) {
       state.isLoading = true;
     },
     getHotelfail(state) {
       state.isLoading = false;
+      state.errors = true;
     },
 
     addToFavorite(state, action) {

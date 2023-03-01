@@ -9,3 +9,5 @@ export const isFavoriteHotel = (hotelId) => (state) => {
 }
 
 export const getBookingInfo = () => (state) => state.hotelReducer.bookingInfo;
+
+export const hasErrors = () => (state) => state.hotelReducer.errors;
