@@ -14,6 +14,7 @@ const AuthModal = () => {
     }, []);
 
     let handleSubmit = () => {
+        console.log(1234);
         localStorage.setItem('isUserLogIn', JSON.stringify(true));
         setIsUserLogIn(true);
     };
@@ -27,28 +28,31 @@ const AuthModal = () => {
                 <form onSubmit={handleSubmit}>
                     <label>
                         Логин:
-                        {login.isDirty && login.emailError && (
-                            <div style={{ color: 'red' }}>Некорректная почта</div>
-                        )}
                         <input
                             onChange={(e) => login.onChange(e)}
                             onBlur={(e) => login.onBlur(e)}
                             value={login.value}
                             type="text"
                         />
+                        {login.isDirty && login.emailError && (
+                            <div style={{ color: 'red' }}>Некорректная почта</div>
+                        )}
                     </label>
                     <label>
                         Пароль:
-                        {password.isDirty && password.minLengthError && (
-                            <div style={{ color: 'red' }}>Слишком короткий пароль</div>
-                        )}
                         <input
                             onChange={(e) => password.onChange(e)}
                             onBlur={(e) => password.onBlur(e)}
                             value={password.value}
                             type="text"
                         />
+                        {password.isDirty && password.minLengthError && (
+                            <div style={{ color: 'red' }}>Слишком короткий пароль</div>
+                        )}
                     </label>
+                    {(!login.inputValid || password.inputValid) && (
+                            <div style={{ color: 'red' }}>Введите логин и пароль</div>
+                        )}
                     <Button disabled={!login.inputValid || password.inputValid}>Войти</Button>
                 </form>
             </div>

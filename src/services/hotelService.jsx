@@ -1,13 +1,12 @@
 import { put, call, debounce, takeLatest } from 'redux-saga/effects';
 import { getHotelSucess, getHotelfail } from '../store/hotel/hotelSlice';
+import { format, addDays } from 'date-fns';
 
 function* fetchUserWorker(action) {
     const { city, dayCount, date } = action.payload;
+    const checkIn = format(new Date(JSON.parse(date)), 'yyyy-MM-dd');
+    const checkOut = format(addDays(new Date(JSON.parse(date)), +dayCount), 'yyyy-MM-dd');
 
-    const checkIn = new Date(JSON.parse(date)).toLocaleDateString('en-ca');
-    let checkOut = new Date(checkIn);
-    checkOut.setDate(checkOut.getDate() + +dayCount);
-    checkOut = checkOut.toLocaleDateString('en-ca');
     try {
         const data = yield call(() =>
             fetch(
